@@ -23,3 +23,8 @@ git clone https://github.com/nuitrcs/examplejobs.git
 That will create a directory called `examplejobs` with all of the content from this repository.
 
 
+## Errors, More Help
+
+Find an error or bug in the examples?  Please let us know: quest-help@northwestern.edu.
+
+Northwestern researchers can contact quest-help@northwestern.edu for further assistance.
