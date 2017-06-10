@@ -1,6 +1,6 @@
 # Example Quest Jobs
 
-This repository contains example job submission and application scripts for use on Quest.
+This repository contains example job submission and application scripts for use on Quest.  We are still adding additional examples and languages/applications to it, so if there are examples you'd find useful, please [let us know](mailto:quest-help@northwestern.edu).
 
 In all cases, you need to update the information in the scripts as appropriate to your allocation, the computing resources you need, and your files/directories.  
 
