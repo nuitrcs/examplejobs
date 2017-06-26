@@ -4,12 +4,12 @@ This example shows how to read parameter values from a text file (parameters.txt
 
 To submit one job per line in parameters.txt using myjob.sh (which expects a variable $PASSEDPARAMS), do:
 
-while read p || [[ -n $p ]]; do msub -V PASSEDPARAMS=$p myjob.sh; done < parameters.txt
+while IFS=$'\t' read p || [[ -n $p ]]; do msub -V PASSEDPARAMS=$p myjob.sh; done < parameters.txt
 
 The parts of the above command that you might need to change are:
-* PASSEDPARAMS: this is the name of the variable used in myjob.sh
-* myjob.sh is the name of the job submission script
-* parameters.txt is the name of the text file with the parameter values
+* `PASSEDPARAMS`: this is the name of the variable used in myjob.sh
+* `myjob.sh` is the name of the job submission script
+* `parameters.txt` is the name of the text file with the parameter values.  The file should be tab-delimited (that's what this part is saying: `IFS=$'\t'`).  
 
 Leave the rest alone.
 
