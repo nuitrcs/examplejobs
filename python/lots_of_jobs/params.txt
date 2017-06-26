@@ -1,0 +1,4 @@
+1	apple
+20	baby bananas
+300	cheerios
+44	dog food

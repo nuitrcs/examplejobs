@@ -1,3 +1,11 @@
+## Examples
+
+* commandline\_arguments has an example of submitting a Python script with values you set at the command line or in the submission script
+* lots\_of\_jobs has an example of using the same Python script with many different parameter combinations
+
+
+## Installing Packages
+
 When running Python jobs on Quest, you need to install the packages first before importing them in your scripts.  You can do this from a Quest login node.  
 
 Load the version of Python you want to use:
