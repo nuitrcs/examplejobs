@@ -9,7 +9,7 @@ while IFS=$'\t' read p || [[ -n $p ]]; do msub -V PASSEDPARAMS=$p myjob.sh; done
 The parts of the above command that you might need to change are:
 * `PASSEDPARAMS`: this is the name of the variable used in myjob.sh
 * `myjob.sh` is the name of the job submission script
-* `parameters.txt` is the name of the text file with the parameter values.  The file should be tab-delimited (that's what this part is saying: `IFS=$'\t'`).  
+* `parameters.txt` is the name of the text file with the parameter values.  The file should be tab-delimited (that's what this part is saying: `IFS=$'\t'`).  Make sure there's an empty line at the end of the file, or the last line of parameters won't get read because the line isn't complete.
 
 Leave the rest alone.
 
