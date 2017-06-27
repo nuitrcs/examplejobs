@@ -1,6 +1,6 @@
 library(dplyr) ## an example, not used below; install packages ahead of time in your account
 
-## save command line arguments
+## save command line arguments -- reference with the args vector of character data
 args <- commandArgs(trailingOnly = TRUE)
 n <- as.integer(args[2])+1
 

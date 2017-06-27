@@ -20,4 +20,8 @@ module load R/3.3.2
 # This sets it to the directory you're submitting from -- change as appropriate
 cd $PBS_O_WORKDIR
 
+# command line args (myoutputfile and 14) are hard-coded here
 Rscript commandlineargs.R myoutputfile 14
+
+# submit this file with msub
+# msub myjob.sh
