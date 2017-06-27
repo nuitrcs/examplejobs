@@ -32,6 +32,10 @@ python myscript_named.py --intval=${P1} --stringval=${P2}
 EOJ
 `
 
+# Note the ` marks above -- one in line 7 and one in line 32
+# They are supposed to be there like that -- enclosing the msub command
+# and what normally goes in a job submission script
+
 # print out the job id for reference later so you can keep track
 echo "JobID = ${JOB} for parameters ${P1} ${P2} submitted on `date`"
 done < params.txt
