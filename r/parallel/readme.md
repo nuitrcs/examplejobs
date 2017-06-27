@@ -1,0 +1,1 @@
+This is an example of running a parallel job controlled from R.  This example uses cores on a single node.
