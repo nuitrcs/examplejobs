@@ -2,6 +2,7 @@
 
 for i in {1..5} ## change 5 here to the number you need
 do
+    here=`pwd`
     JOB=`msub - << EOJ
 #!/bin/bash
 #MSUB -A <allocationID>
@@ -20,7 +21,8 @@ module load R/3.3.1
 
 # Set your working directory 
 # This sets it to the directory you're submitting from -- change as appropriate
-cd $PBS_O_WORKDIR
+# cd $PBS_O_WORKDIR
+cd $here
 
 # After you change directories with the command above, all files below 
 # are then referenced with respect to that directory

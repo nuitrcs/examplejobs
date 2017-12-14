@@ -22,6 +22,8 @@ git clone https://github.com/nuitrcs/examplejobs.git
 
 That will create a directory called `examplejobs` with all of the content from this repository.
 
+To download files to your computer, use the Green button above to download all files as a .zip file, or view and download individual files.  Make sure to save the RAW version of files when downloading (use the Raw button on any individual file page), not the file preview page with extra GitHub headers and menus around it.
+
 
 ## Errors, More Help
 
