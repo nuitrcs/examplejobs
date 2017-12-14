@@ -1,1 +1,1 @@
-myscript.sh is the example job submission script found on the <a href="kb.northwestern.edu/genomics-compute-cluster">Genomics Compute Cluster getting started guide</a>.  You will need to modify this script.
+jobscript.sh is the example job submission script found on the <a href="kb.northwestern.edu/genomics-compute-cluster">Genomics Compute Cluster getting started guide</a>.  You will need to modify this script.
