@@ -38,6 +38,10 @@ EOJ
 
 # print out the job id for reference later so you can keep track
 echo "JobID = ${JOB} for parameters ${P1} ${P2} submitted on `date`"
+
+# sleep to prevent overwhelming scheduler
+sleep 3s
+
 done < params.txt
 exit   
 
