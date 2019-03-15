@@ -10,7 +10,7 @@ See [Quest Documentation](https://kb.northwestern.edu/page.php?id=72406) for mor
 
 In the examples, items in `<>` are things you need to fill in with appropriate values.  Don't include the `<>` when you substitute a value.
 
-In the example job submission files (`.sh` file extensions), there are commented lines at the end of the script giving an example of how to submit this job on Quest.  These `msub` commands should be run from the command line.  They are not part of the job submission script (so they should remain commented out).
+In the example job submission files (`.sh` file extensions), there are commented lines at the end of the script giving an example of how to submit this job on Quest.  These `sbatch` commands should be run from the command line.  They are not part of the job submission script (so they should remain commented out).
 
 ## Download this repository
 
@@ -27,6 +27,6 @@ To download files to your computer, use the Green button above to download all f
 
 ## Errors, More Help
 
-Find an error or bug in the examples?  Please let us know: quest-help@northwestern.edu.
+Find an error or bug in the examples?  Please let us know: [quest-help@northwestern.edu](mailto:quest-help@northwestern.edu).
 
-Northwestern researchers can contact quest-help@northwestern.edu for further assistance.
+Northwestern researchers can contact [quest-help@northwestern.edu](mailto:quest-help@northwestern.edu) for further assistance.

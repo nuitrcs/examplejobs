@@ -5,9 +5,9 @@ myscript.py shows an example of referencing the supplied values by number/positi
 To submit myjob.sh or myjob\_named.sh (change the .sh filename as appropriate): 
 
 ```
-msub -v ARG1=3,ARG2=hello myjob.sh
+sbatch -v ARG1=3,ARG2=hello myjob.sh
 ```
 
-In these examples, you are passing in the values to Python from the msub command, but you could also hard code them explicitly into myjob.sh.  
+In these examples, you are passing in the values to Python from the sbatch command, but you could also hard code them explicitly into myjob.sh.  
 
 

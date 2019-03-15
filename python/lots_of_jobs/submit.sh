@@ -1,26 +1,27 @@
 #!/bin/bash
 while IFS=$'\t' read P1 P2
 do
-    JOB=`msub - << EOJ
+    JOB=`sbatch - << EOJ
 
 #!/bin/bash
-#MSUB -A <allocationID>
-#MSUB -q <queueName>
-#MSUB -l walltime=<hh:mm:ss>
-#MSUB -M <emailAddress>
-#MSUB -j oe
-#MSUB -N <jobName>
-#MSUB -l nodes=1:ppn=<numberOfCores>
+#SBATCH -A <allocationID>
+#SBATCH --partition=<queueName>
+#SBATCH --time=<hh:mm:ss>
+#SBATCH --mail-user=<emailAddress>
+#SBATCH --output=<combined out and err file path>
+#SBATCH -J <jobName>
+#SBATCH --nodes=1
+#SBATCH -n <core count>
+
+# unload modules that may have been loaded when job was submitted
+module purge all
 
 # load the version of python you want to use
 module load python/anaconda3.6
 
-# Set your working directory 
-# This sets it to the directory you're submitting from -- change as appropriate
-cd $PBS_O_WORKDIR
-
-# After you change directories with the command above, all files below 
-# are then referenced with respect to that directory
+# By default all file paths are relative to the directory where you submitted the job.
+# To change to another path, use `cd <path>`, for example:
+# cd /projects/<allocationID>
 
 python myscript_named.py --intval=${P1} --stringval=${P2}
 EOJ

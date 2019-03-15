@@ -1,27 +1,25 @@
 #!/bin/bash
-#MSUB -A <allocationID>
-#MSUB -q <queueName>
-#MSUB -l walltime=<hh:mm:ss>
-#MSUB -M <emailAddress>
-#MSUB -j oe
-#MSUB -N <jobName>
-#MSUB -l nodes=1:ppn=<numberOfCores>
+#SBATCH -A <allocationID>
+#SBATCH --partition=<queueName>
+#SBATCH --time=<hh:mm:ss>
+#SBATCH --mail-user=<emailAddress>
+#SBATCH --output=<combined out and err file path>
+#SBATCH -J <jobName>
+#SBATCH --nodes=1
+#SBATCH -n <core count>
 
-# Leave a blank line, like above, before you start your other commands
-
-# with #MSUB, a # doesn't indicate a comment;
-# it's part of the MSUB specification (and first line).
-# In the rest of the script, # starts a comment
+# unload modules that may have been loaded when job was submitted
+module purge all
 
 # load module with version you want
 module load R/3.3.2
 
-# Set your working directory 
-# This sets it to the directory you're submitting from -- change as appropriate
-cd $PBS_O_WORKDIR
+# By default all file paths are relative to the directory where you submitted the job.
+# To change to another path, use `cd <path>`, for example:
+# cd /projects/<allocationID>
 
-# command line args (myoutputfile and 14) are hard-coded here
+# Command line args (myoutputfile and 14) are hard-coded here.
 Rscript commandlineargs.R myoutputfile 14
 
-# submit this file with msub
-# msub myjob.sh
+# submit this file with sbatch
+# sbatch myjob.sh

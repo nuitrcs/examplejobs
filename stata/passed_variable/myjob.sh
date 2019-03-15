@@ -1,26 +1,24 @@
 #!/bin/bash
-#MSUB -A <allocationID>
-#MSUB -q <queueName>
-#MSUB -l walltime=<hhh:mm:ss> 
-#MSUB -M <emailAddress>
-#MSUB -j oe
-#MSUB -N <jobName>
-#MSUB -l nodes=1:ppn=4
+#SBATCH -A <allocationID>
+#SBATCH --partition=<queueName>
+#SBATCH --time=<hhh:mm:ss> 
+#SBATCH --mail-user=<emailAddress>
+#SBATCH --output=<combined out and err file path>
+#SBATCH -J <jobName>
+#SBATCH --nodes=1
+#SBATCH -n 4 # Stata-MP has a 4 core license.
 
-## We use 4 for ppn (cores) above because Stata-MP has a 4 core license.
+# unload modules that may have been loaded when job was submitted
+module purge all
 
 module load stata
 
-# Set your working directory: where are your scripts and data?
-# This sets it to the directory you're submitting from -- change as appropriate
-cd $PBS_O_WORKDIR
-# Another example: cd /projects/<allocationID>
-
-# After you change directories with the command above, all files below 
-# are then referenced with respect to that directory
+# By default all file paths are relative to the directory where you submitted the job.
+# To change to another path, use `cd <path>`, for example:
+# cd /projects/<allocationID>
 
 # The .do filename (with the path as necessary) is being passed in as an 
-# environmental variable from the call to msub.  
+# environmental variable from the call to sbatch.  
 stata-mp -b do ${DOFILENAME} 
 # Stata output will be in mycode.log in the working directory.
 # mycode.do example file also writes some additional output files.
@@ -30,6 +28,6 @@ stata-mp -b do ${DOFILENAME}
 
 # From the command line, in the directory with this file, you could then 
 # submit multiple jobs for different files (mycode1.do, mycode2.do).  Examples:
-# msub -v DOFILENAME=mycode1 myjob.sh
-# msub -v DOFILENAME=mycode2 myjob.sh
+# sbatch -v DOFILENAME=mycode1 myjob.sh
+# sbatch -v DOFILENAME=mycode2 myjob.sh
 
