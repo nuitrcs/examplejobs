@@ -1,11 +1,15 @@
 #!/bin/bash
-#MSUB -A <allocationID>
-#MSUB -q <queueName>
-#MSUB -l walltime=<hh:mm:ss>
-#MSUB -M <emailAddress>
-#MSUB -j oe
-#MSUB -N <jobName>
-#MSUB -l nodes=1:ppn=4
+#SBATCH -A <allocationID>
+#SBATCH --partition=<queueName>
+#SBATCH --time=<hh:mm:ss>
+#SBATCH --mail-user=<emailAddress>
+#SBATCH --output=<combined out and err file path>
+#SBATCH -J <jobName>
+#SBATCH --nodes=1
+#SBATCH -n 4
+
+# unload modules that may have been loaded when job was submitted
+module purge all
 
 module load R/3.3.2
 
@@ -14,10 +18,7 @@ module load R/3.3.2
 # since it is additional processes on top of the main one
 export MC_CORES=3
 
-# Set your working directory
-cd $PBS_O_WORKDIR
-
 Rscript parallel.R 
 
-# submit this script with msub from the command line:
-# msub parallel.sh
+# submit this script with sbatch from the command line:
+# sbatch parallel.sh
