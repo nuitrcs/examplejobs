@@ -23,7 +23,7 @@ module purge all
 module load python/anaconda3.6
 
 # Here goes the application-specific line.  Example here is using 
-# named command line arguments for a Python script, but use ${P1) and ${P2} a
+# named command line arguments for a Python script, but use ${P1} and ${P2} a
 # as appropriate for your application
 python myscript_named.py --intval=${P1} --stringval=${P2}
 EOJ
@@ -34,7 +34,7 @@ EOJ
 # and what normally goes in a job submission script
 
 # print out the job id for reference later so you can keep track
-echo "JobID = {$SLURM_JOB_ID} for parameters ${P1} ${P2} submitted on `date`"
+echo "{$JOB} for parameters ${P1} ${P2} submitted on `date`"
 
 # sleep to prevent overwhelming scheduler
 sleep 3s
