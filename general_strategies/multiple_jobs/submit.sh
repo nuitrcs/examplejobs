@@ -11,8 +11,8 @@ do
 #SBATCH --partition=<queueName>
 #SBATCH --time=<hh:mm:ss>
 #SBATCH --mail-user=<emailAddress>
-#SBATCH --output=<combined out and err file path>
-#SBATCH -J <jobName>
+#SBATCH --output="./${P1}.${P2}.out"  # names output file in current location
+#SBATCH -J "${P1}.${P2}"
 #SBATCH --nodes=<count>
 #SBATCH -n <core count>
 
@@ -34,7 +34,7 @@ EOJ
 # and what normally goes in a job submission script
 
 # print out the job id for reference later so you can keep track
-echo "{$JOB} for parameters ${P1} ${P2} submitted on `date`"
+echo "$JOB for parameters ${P1} ${P2} submitted on `date`"
 
 # sleep to prevent overwhelming scheduler
 sleep 3s
