@@ -4,7 +4,7 @@
 # saved as P1 and P2
 while IFS=$'\t' read P1 P2
 do
-    JOB=`sbatch - << EOJ
+    JOB=`sbatch << EOJ
 
 #!/bin/bash
 #SBATCH -A <allocationID>
