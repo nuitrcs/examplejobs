@@ -7,6 +7,7 @@
 #SBATCH -J somename_tophat
 #SBATCH --nodes=<count>
 #SBATCH -n <core count>
+#SBATCH --mem=<Total memory in MB>
 
 # unload modules that may have been loaded when job was submitted
 module purge all

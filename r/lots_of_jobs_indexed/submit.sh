@@ -14,6 +14,7 @@ do
 #SBATCH -J <jobName> # set a descriptive value here
 #SBATCH --nodes=1
 #SBATCH -n 1 # often you'll be using just 1 core per job when splitting up your work this way
+#SBATCH --mem=3G  # Total memory in GB needed for a job. Also see --mem-per-cpu
 
 # unload modules that may have been loaded when job was submitted
 module purge all

@@ -7,6 +7,7 @@
 #SBATCH -J <jobName>
 #SBATCH --nodes=1
 #SBATCH -n 4 # Stata-MP has a 4 core license.
+#SBATCH --mem=312G  # Total memory in GB needed for a job. Also see --mem-per-cpu
 
 # unload modules that may have been loaded when job was submitted
 module purge all

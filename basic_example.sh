@@ -7,6 +7,7 @@
 #SBATCH -J <jobName>
 #SBATCH --nodes=1
 #SBATCH -n 1
+#SBATCH --mem=3G  # Total memory in GB needed for a job. Also see --mem-per-cpu
 
 # with #SBATCH, a # doesn't indicate a comment;
 # it's part of the SBATCH specification (and first line).

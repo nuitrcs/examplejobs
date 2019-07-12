@@ -12,6 +12,7 @@ do
 #SBATCH -J <jobName>
 #SBATCH --nodes=1
 #SBATCH -n <core count>
+#SBATCH --mem=<Total memory in MB>
 
 # unload modules that may have been loaded when job was submitted
 module purge all
