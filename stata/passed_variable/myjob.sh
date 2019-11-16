@@ -29,6 +29,5 @@ stata-mp -b do ${DOFILENAME}
 
 # From the command line, in the directory with this file, you could then 
 # submit multiple jobs for different files (mycode1.do, mycode2.do).  Examples:
-# sbatch -v DOFILENAME=mycode1 myjob.sh
-# sbatch -v DOFILENAME=mycode2 myjob.sh
-
+# sbatch --export=DOFILENAME=mycode1 myjob.sh
+# sbatch --export=DOFILENAME=mycode2 myjob.sh
