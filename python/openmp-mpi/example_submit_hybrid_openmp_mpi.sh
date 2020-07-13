@@ -12,7 +12,7 @@
 #SBATCH --mail-user=email@u.northwestern.edu ## your email
 ###SBATCH --constraint="[quest5|quest6|quest8|quest9]" ### you want computers you have requested to be from either quest5 or quest6/7 or quest8 or quest 9 nodes, not a combination of nodes. Import for MPI, not usually import for job arrays)
 
-export OMP_NUM_THREADS=4
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
 module purge all
 module load python-anaconda3

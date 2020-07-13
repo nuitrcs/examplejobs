@@ -25,3 +25,5 @@ This contains an example of how to ask and use the resources of multiple compute
 
 ## hybrid openmp MPI
 Parallelize across multiple computers using MPI but parallelize within the computer using openMP.
+
+(compile the hello.c code before running the slurm submission file: gcc -o hello -fopenmp hello.c)
