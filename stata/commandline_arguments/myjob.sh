@@ -27,4 +27,4 @@ stata-mp -b do mycode $ARG1 $ARG2 $ARG3
 # in the directory from which you submit the job with information from the scheduler
 
 # From the command line, in the directory with this file, submit this job with:
-# sbatch -V ARG1=3,ARG2=hello,ARG3=4.5 myjob.sh
+# sbatch --export=ARG1=3,ARG2=hello,ARG3=4.5 myjob.sh
