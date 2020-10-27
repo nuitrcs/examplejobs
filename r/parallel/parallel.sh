@@ -4,9 +4,9 @@
 #SBATCH --time=<hh:mm:ss>
 #SBATCH --mail-user=<emailAddress>
 #SBATCH --output=<combined out and err file path>
-#SBATCH -J <jobName>
+#SBATCH --job-name <jobName>
 #SBATCH --nodes=1
-#SBATCH -n 4
+#SBATCH --ntasks-per-node=4
 #SBATCH --mem=12G  # Total memory in GB needed for a job. Also see --mem-per-cpu
 
 # unload modules that may have been loaded when job was submitted
