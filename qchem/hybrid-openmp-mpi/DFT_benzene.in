@@ -1,0 +1,29 @@
+$comment
+benzene EDF1/6-31+G* Single point energy
+$end
+
+$molecule
+0  1
+c1
+c2 c1 cc
+c3 c2 cc c1 120.0
+c4 c3 cc c2 120.0 c1   0.0
+c5 c4 cc c3 120.0 c2   0.0
+c6 c5 cc c4 120.0 c3   0.0
+h1 c1 hc c2 120.0 c3 180.0
+h2 c2 hc c3 120.0 c4 180.0
+h3 c3 hc c4 120.0 c5 180.0
+h4 c4 hc c5 120.0 c6 180.0
+h5 c5 hc c6 120.0 c1 180.0
+h6 c6 hc c1 120.0 c2 180.0
+ 
+cc = 1.3862
+hc = 1.0756
+$end
+
+$rem
+EXCHANGE              EDF1       Compound exchange-correlation
+BASIS                 6-31+G*    Basis Set
+INTEGRALS_BUFFER      128
+SYMMETRY              FALSE      Switch symmetry off
+$end
