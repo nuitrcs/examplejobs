@@ -10,8 +10,7 @@
 #SBATCH --constraint="[quest5|quest6|quest8|quest9|quest10]"
 
 module purge all
-module use /projects/a9009/sbc538/spack/spack/share/spack/modules/linux-rhel7-x86_64/
-module load abinit
+module load abinit/8.10.3-openmpi-4.0.5-intel-19.0.5.281
 export SLURM_MPI_TYPE=pmix_v3
 
 mpirun -np $SLURM_NTASKS abinit <tbase1_x.files> log.stdout
