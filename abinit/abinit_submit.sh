@@ -6,7 +6,7 @@
 #SBATCH --time=00:20:00 ## how long does this need to run (remember different partitions have restrictions on this param)
 #SBATCH --mem-per-cpu=3G ## how much RAM do you need per CPU (this effects your FairShare score so be careful to not ask for more than you need))
 #SBATCH --job-name=sample_job  ## When you run squeue -u NETID this is how you can identify the job
-#SBATCH --output=outlog_qe_6.7_intel ## standard out and standard error goes to this file
+#SBATCH --output=outlog_abinit_8_10_3_intel ## standard out and standard error goes to this file
 #SBATCH --constraint="[quest5|quest6|quest8|quest9|quest10]"
 
 module purge all
