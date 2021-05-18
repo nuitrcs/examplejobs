@@ -1,0 +1,18 @@
+$comment
+ Simple job showing the use of the inbuilt ECP's
+$end
+
+$molecule
+ 0 1
+ Ag
+ Cl  Ag  r
+
+ r = 2.4
+$end
+
+$rem
+ method             hf             Hartree-Fock calculation
+ ecp                fit-lanl2dz        Using the fitted LANL2DZ ECP...
+ basis              lanl2dz            ...and the matching basis set
+$end
+

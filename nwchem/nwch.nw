@@ -1,0 +1,22 @@
+start n2   
+
+geometry  
+  symmetry d2h  
+  n 0 0 0.542  
+end  
+
+basis spherical  
+  n library cc-pvtz  
+end  
+
+mp2  
+  freeze core  
+end  
+
+task mp2 optimize  
+
+ccsd  
+  freeze core  
+end  
+
+task ccsd(t)

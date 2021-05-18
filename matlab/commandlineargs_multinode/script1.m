@@ -1,4 +1,4 @@
-parpool('multinode12') %you must replace the name here with the name of the profile you've made
+parpool('multinode12', <NumWorkers>) %you must replace the name here with the name of the profile you've made and <NumWorkers> with how many CPUs you selected in your profile
 
 %numiter is a variable with the value set in the submission script
 

@@ -14,7 +14,7 @@
 module purge all
 
 ## job commands; script1 is the MATLAB .m file, specified without the .m extension
-module load matlab/r2016a
+module load matlab/r2020b
 matlab -nosplash -nodesktop -singleCompThread -r "numiter=500;script1" 
 
 # Submit this job from the command line with: sbatch myjob.sh
