@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --account=w10001  ## YOUR ACCOUNT pXXXX or bXXXX
-#SBATCH --partition=w10001  ### PARTITION (buyin, short, normal, etc)
+#SBATCH --account=pXXXX  ## YOUR ACCOUNT pXXXX or bXXXX
+#SBATCH --partition=short  ### PARTITION (buyin, short, normal, etc)
 #SBATCH --nodes=2 ## how many computers do you need
 #SBATCH --ntasks-per-node=4 ## how many cpus or processors do you need on each computer
 #SBATCH --time=00:10:00 ## how long does this need to run (remember different partitions have restrictions on this param)
@@ -9,7 +9,7 @@
 #SBATCH --output=outlog ## standard out and standard error goes to this file
 #SBATCH --mail-type=ALL ## you can receive e-mail alerts from SLURM when your job begins and when your job finishes (completed, failed, etc)
 #SBATCH --mail-user=email@u.northwestern.edu ## your email
-#SBATCH --constraint="[quest5|quest6|quest8|quest9|quest10]" ### you want computers you have requested to be from either quest5 or quest6/7 or quest8 or quest 9 nodes, not a combination of nodes. Import for MPI, not usually import for job arrays)
+#SBATCH --constraint="[quest7|quest8|quest9|quest10]" ### you want computers you have requested to be from either quest5 or quest6/7 or quest8 or quest 9 nodes, not a combination of nodes. Import for MPI, not usually import for job arrays)
 
 module purge all
 module load paraview/5.9.0
