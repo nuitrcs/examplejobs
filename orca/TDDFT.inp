@@ -25,7 +25,7 @@ end
 end
 
 %pal
-  nprocs 56
+  nprocs 8
 end
 
 * xyz 1 1
