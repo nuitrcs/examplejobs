@@ -11,7 +11,6 @@
 
 module purge all
 module load quantum-espresso/6.7-openmpi-4.0.5-intel-19.0.5.281
-export SLURM_MPI_TYPE=pmix_v3
 
 mpirun -np $SLURM_NTASKS pw.x < ./qe.in > ./qe.out
 #srun -n ${SLURM_NTASKS} pw.x < ./qe.in > ./qe.out
