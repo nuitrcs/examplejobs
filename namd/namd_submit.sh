@@ -13,6 +13,4 @@
 module purge all
 module load namd/2.14-openmpi-4.0.5-intel-19.0.5.281 
 
-export SLURM_MPI_TYPE=pmix_v3
-
 srun -n ${SLURM_NNODES} namd2 ++ppn $((${SLURM_NTASKS_PER_NODE}-1)) alanin.conf
