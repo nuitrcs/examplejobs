@@ -10,7 +10,6 @@
 
 module purge all
 module load vasp/5.4.4-openmpi-4.0.5-intel-19.0.5.281
-export SLURM_MPI_TYPE=pmix_v3
 
 mpirun -np ${SLURM_NTASKS} vasp_std 
 #srun -n ${SLURM_NTASKS} vasp_std
