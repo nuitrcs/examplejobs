@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --account=a9009  ## YOUR ACCOUNT pXXXX or bXXXX
-#SBATCH --partition=all  ### PARTITION (buyin, short, normal, etc)
+#SBATCH --account=pXXXX  ## YOUR ACCOUNT pXXXX or bXXXX
+#SBATCH --partition=gengpu
 #SBATCH --nodes=1 ## how many computers do you need
 #SBATCH --ntasks-per-node=1 ## how many cpus or processors do you need on each computer
 #SBATCH --gres=gpu:a100:1  ## type of GPU requested, and number of GPU cards to run on

@@ -10,7 +10,7 @@
 
 #########################################################################
 ### PLEASE NOTE:                                                      ###
-### The above CPU and Memory resources have been selected based ###
+### The above CPU and Memory resources have been selected based       ###
 ### on the computing resources that alphafold was tested on           ###
 ### which can be found here:                                          ###
 ### https://github.com/deepmind/alphafold#running-alphafold)          ###
