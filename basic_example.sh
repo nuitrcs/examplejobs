@@ -1,37 +1,18 @@
 #!/bin/bash
-#SBATCH -A <allocationID>
-#SBATCH --partition=<queueName>
-#SBATCH --time=<hh:mm:ss>
-#SBATCH --mail-user=<emailAddress>
-#SBATCH --output=<combined out and err file path>
-#SBATCH -J <jobName>
-#SBATCH --nodes=1
-#SBATCH -n 1
-#SBATCH --mem=3G  # Total memory in GB needed for a job. Also see --mem-per-cpu
+#SBATCH --account=pXXXXX  ## YOUR ACCOUNT pXXXX or bXXXX
+#SBATCH --partition=short  ### PARTITION (buyin, short, normal, etc)
+#SBATCH --nodes=1 ## how many computers do you need
+#SBATCH --ntasks-per-node=1 ## how many cpus or processors do you need on each computer
+#SBATCH --time=00:10:00 ## how long does this need to run (remember different partitions have restrictions on this param)
+#SBATCH --mem-per-cpu=1G ## how much RAM do you need per CPU, also see --mem=<XX>G for RAM per node/computer (this effects your FairShare score so be careful to not ask for more than you need))
+#SBATCH --job-name=sample_job  ## When you run squeue -u NETID this is how you can identify the job
+#SBATCH --output=outlog ## standard out and standard error goes to this file
+#SBATCH --mail-type=ALL ## you can receive e-mail alerts from SLURM when your job begins and when your job finishes (completed, failed, etc)
+#SBATCH --mail-user=email@u.northwestern.edu ## your email
 
-# with #SBATCH, a # doesn't indicate a comment;
-# it's part of the SBATCH specification (and first line).
-# In the rest of the script, # starts a comment
-
-# unload modules that may have been loaded when job was submitted
 module purge all
+module load python-miniconda3
+source activate /projects/intro/envs/slurm-py37-test
 
-# add a project directory to your PATH (if needed)
-export PATH=$PATH:/projects/<allocationID>
-
-# load modules you need to use: these are just examples
-module load python/anaconda
-module load java
-
-# By default all file paths are relative to the directory where you submit the job.
-# To change to another path, use "cd <path>", for example:
-# cd /projects/<allocationID>
-
-# After you change directories with the command above, all file paths below 
-# are relative to that directory.
-
-# A command you actually want to execute (example):
-java -jar <someinput> <someoutput>
-
-# Another command you actually want to execute, if needed (example):
-python myscript.py
+python --version
+python slurm_test.py
