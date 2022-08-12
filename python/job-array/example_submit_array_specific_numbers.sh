@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=w10001  ## YOUR ACCOUNT pXXXX or bXXXX
 #SBATCH --partition=w10001  ### PARTITION (buyin, short, normal, w10001, etc)
-#SBATCH --array=2-3,7,10-11 ## control which indexes are run and therefore what values are assigned to SLURM_ARRAY_TASK_ID
+#SBATCH --array=2-3,7 ## control which indexes are run and therefore what values are assigned to SLURM_ARRAY_TASK_ID
 #SBATCH --nodes=1 ## how many computers do you need
 #SBATCH --ntasks-per-node=1 ## how many cpus or processors do you need on each computer
 #SBATCH --time=00:10:00 ## how long does this need to run (remember different partitions have restrictions on this param)
