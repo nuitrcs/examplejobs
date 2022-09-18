@@ -6,7 +6,7 @@
 #SBATCH --tasks-per-node=4
 #SBATCH --time=01:00:00
 #SBATCH --mem-per-cpu=3G
-#SBATCH --constraint="[quest7|quest8|quest9|quest10]"
+#SBATCH --constraint="[quest8|quest9|quest10]"
 
 module purge all
 module load vasp/5.4.4-openmpi-4.0.5-intel-19.0.5.281
