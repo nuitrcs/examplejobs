@@ -7,7 +7,7 @@
 #SBATCH --mem-per-cpu=3G ## how much RAM do you need per CPU (this effects your FairShare score so be careful to not ask for more than you need))
 #SBATCH --job-name=lammps_openmpi  ## When you run squeue -u NETID this is how you can identify the job
 #SBATCH --output=outlog_lammps_openmpi_intel ## standard out and standard error goes to this file
-#SBATCH --constraint="[quest8|quest9|quest10]"
+#SBATCH --constraint="[quest8|quest9|quest10|quest11]"
 
 module purge
 module load lammps/20200303-openmpi-4.0.5-intel-19.0.5.281

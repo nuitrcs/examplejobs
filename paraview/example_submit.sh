@@ -9,7 +9,7 @@
 #SBATCH --output=outlog ## standard out and standard error goes to this file
 #SBATCH --mail-type=ALL ## you can receive e-mail alerts from SLURM when your job begins and when your job finishes (completed, failed, etc)
 #SBATCH --mail-user=email@u.northwestern.edu ## your email
-#SBATCH --constraint="[quest8|quest9|quest10]" ### you want computers you have requested to be from either quest8 or quest9 or quest10, not a combination of nodes. Import for MPI, not usually import for job arrays)
+#SBATCH --constraint="[quest8|quest9|quest10|quest11]" ### you want computers you have requested to be from either quest8 or quest9 or quest10, not a combination of nodes. Import for MPI, not usually import for job arrays)
 
 module purge all
 module load paraview/5.9.0

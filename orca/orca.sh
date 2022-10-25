@@ -7,7 +7,7 @@
 #SBATCH --mem-per-cpu=4G ## how much RAM do you need per CPU (this effects your FairShare score so be careful to not ask for more than you need))
 #SBATCH --job-name=sample_job  ## When you run squeue -u NETID this is how you can identify the job
 #SBATCH --output=outlog_orca_4.2.1 ## standard out and standard error goes to this file
-#SBATCH --constraint="[quest8|quest9|quest10]"
+#SBATCH --constraint="[quest8|quest9|quest10|quest11]"
 
 module purge
 module load orca/4.2.1
