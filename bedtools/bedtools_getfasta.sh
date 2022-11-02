@@ -20,7 +20,7 @@ module load bedtools
 # NOTE: Note the newest available zebrafish genome at the time of writing is GRCz11
 ## Anthony Pulvino; 10/24/2022
 
-example_files='/projects/genomicsshare/GCC_scripts/bedtools'
+export example_files=/projects/genomicsshare/GCC_scripts/bedtools
 
 bedtools getfasta -fi $example_files/genome.fa \
 -bed $example_files/ZebrafishMef_GRCz10.gtf \
