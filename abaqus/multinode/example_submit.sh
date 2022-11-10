@@ -1,11 +1,10 @@
 #!/bin/bash
-#SBATCH -A pXXXX               # Allocation
+#SBATCH -A pXXXXX               # Allocation
 #SBATCH -p short                # Queue
 #SBATCH -t 04:00:00             # Walltime/duration of the job
-#SBATCH -N 2                    # Number of Nodes
-#SBATCH --mem-per-cpu=3G               # Memory per node in GB needed for a job. Also see --mem-per-cpu
-#SBATCH --ntasks-per-node=28     # Number of Cores (Processors)
-#SBATCH --job-name=example_job       # Name of job
+#SBATCH --ntasks=20             # Number of CPUs (no need to specify how many nodes as it is MPI)
+#SBATCH --mem-per-cpu=3G        # Memory per cpu
+#SBATCH --job-name=example_job  # Name of job
 
 # unload any modules that carried over from your command line session
 module purge
