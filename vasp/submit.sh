@@ -7,7 +7,8 @@
 #SBATCH --mem-per-cpu=2G
 #SBATCH --constraint="[quest8|quest9|quest10|quest11]"
 
-module purge all
+module purge
+module use /software/spack_v17d2/spack/share/spack/modules/linux-rhel7-x86_64/
 module load vasp/5.4.4-openmpi-intel
 export OMP_NUM_THREADS=1
 
