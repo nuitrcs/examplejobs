@@ -15,9 +15,10 @@ module purge all
 module load R/3.3.2
 
 # set environment variable for R for parallelization;
-# MC_CORES should be 1 less that cores requested above (which is 4), 
+# MC_CORES should be 1 less that cores requested above (which is 4),
+# the value of $SLURM_NPROCS is set to the same value as --ntasks-per-node above
 # since it is additional processes on top of the main one
-export MC_CORES=3
+export MC_CORES=$(($SLURM_NPROCS-1))
 
 Rscript parallel.R 
 
