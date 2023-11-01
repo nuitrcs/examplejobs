@@ -23,12 +23,39 @@ ask_delete = OFF
 mp_file_system = (DETECT, DETECT)
 EOF
 
-node_list=$(scontrol show hostname ${SLURM_NODELIST} | sort -u)
+if [[ $SLURM_JOB_CPUS_PER_NODE =~ "," ]]; then
+    cpus_per_node_list=()
+    node_list=($(scontrol show hostname ${SLURM_NODELIST} | sort -u))
+    IFS=',' read -r -a cpus_per_node <<< "$SLURM_JOB_CPUS_PER_NODE"
+    mp_host_list="["
+    for i in "${!cpus_per_node[@]}"
+    do
+        if [[ ${cpus_per_node[i]} =~ "x" ]]; then
+            weird_syntax_stripped_out=`echo "${cpus_per_node[i]}" | sed "s/(//" | sed "s/)//" | sed "s/x/,/"`
+            IFS=',' read -r -a repeated_cpus_per_node <<< "$weird_syntax_stripped_out"
+            for (( ii=0; ii<${repeated_cpus_per_node[1]}; ii++ )); do
+                echo $ii
+                cpus_per_node_list+=(${repeated_cpus_per_node[0]})
+            done;
+        else
+            cpus_per_node_list+=(${cpus_per_node[i]})
+        fi
+    done
 
-mp_host_list="["
-for host in ${node_list}; do
-    mp_host_list="${mp_host_list}['$host', ${SLURM_CPUS_ON_NODE}],"
-done
+    mp_host_list="["
+    for i in "${!node_list[@]}"
+    do
+        x=${node_list[i]}
+        y=${cpus_per_node_list[i]}
+        mp_host_list="${mp_host_list}['$x', $y],"
+    done
+else
+    node_list=$(scontrol show hostname ${SLURM_NODELIST} | sort -u)
+    mp_host_list="["
+    for host in ${node_list}; do
+        mp_host_list="${mp_host_list}['$host', ${SLURM_CPUS_ON_NODE}],"
+    done
+fi
 
 mp_host_list=$(echo ${mp_host_list} | sed -e "s/,$/]/")
 
