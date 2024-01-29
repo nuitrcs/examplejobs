@@ -25,6 +25,7 @@ mkdir -p ${input_args[0]}/${input_args[1]}/${input_args[2]}
 
 # change directory
 cd ${input_args[0]}/${input_args[1]}/${input_args[2]}
+cp $SLURM_SUBMIT_DIR/slurm_test.py .
 
 # Pass the input arguments associated with this SLURM_ARRAY_TASK_ID to your function.
 python /home/quest_demo/workshop/Scheduler-Job-Array-and-Dependent-Jobs/slurm_examples/python/job-array-huge/slurm_test.py --input-argument-1 ${input_args[0]} --input-argument-2 ${input_args[1]} --input-argument-3 ${input_args[2]}
