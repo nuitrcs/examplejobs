@@ -5,6 +5,7 @@
 #SBATCH --ntasks=20             # Number of CPUs (no need to specify how many nodes as it is MPI)
 #SBATCH --mem-per-cpu=3G        # Memory per cpu
 #SBATCH --job-name=example_job  # Name of job
+#SBATCH --constraint="[quest9|quest10|quest11|quest12]"
 
 # unload any modules that carried over from your command line session
 module purge
