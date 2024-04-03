@@ -8,6 +8,7 @@
 #SBATCH --cpus-per-task 4 ## howmany cpus does each MPI task needs to have access to
 #SBATCH --job-name="DFT_benzene"
 #SBATCH --output=errors.out
+#SBATCH --constraint="[quest9|quest10|quest11|quest12]"
 
 module purge all
 module load qchem/5.3
