@@ -1,16 +1,16 @@
-For this example to work, you must first have a parallel profile set up.  See the [Quest MATLAB Documentation](https://kb.northwestern.edu/quest-matlab).  In the MATAB script (script1.m), you must change the name of the parallel profile to match a parallel profile that you have set up.  
+For this example to work, you must first have a cluster profile set up.  See the [Quest MATLAB Documentation](https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1548#multinode).
 
-You submit this job by running the `myjob.sh` script, not by using `sbatch`. You must make the `myjob.sh` script executable first:
+You submit this job by running the `submit_matlab_job_wrapper.sh` script, not by using `sbatch`. You must make the `submit_matlab_job_wrapper.sh` script executable first:
 
 ```
-chmod u+x myjob.sh
-./myjob.sh
+chmod u+x submit_matlab_job_wrapper.sh
+./submit_matlab_job_wrapper.sh
 ```
 
-MATLAB will use the parallel profile that's been set up to submit jobs for us.  
+MATLAB will use the parallel profile that's been set up to submit the jobs for us.
 
 It will take a few minutes for your job to be submitted, but you can get information about it once it's started with 
 
 ```
-showq -u your_netid
+squeue -u your_netid
 ```
