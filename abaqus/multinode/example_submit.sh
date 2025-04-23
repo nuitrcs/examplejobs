@@ -5,15 +5,14 @@
 #SBATCH --ntasks=20             # Number of CPUs (no need to specify how many nodes as it is MPI)
 #SBATCH --mem-per-cpu=3G        # Memory per cpu
 #SBATCH --job-name=example_job  # Name of job
-#SBATCH --constraint="[quest9|quest10|quest11|quest12]"
 
 # unload any modules that carried over from your command line session
 module purge
 
 # load modules you need to use
-module load abaqus/2020
-
-unset SLURM_GTIDS
+# can also be
+# module load abaqus/2025
+module load abaqus/2022
 
 ### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)
 env_file=abaqus_v6.env
@@ -61,8 +60,6 @@ fi
 mp_host_list=$(echo ${mp_host_list} | sed -e "s/,$/]/")
 
 echo "mp_host_list=${mp_host_list}"  >> ${env_file}
-
-export I_MPI_HYDRA_BOOTSTRAP=ssh
 
 # A command you actually want to execute:
 abaqus interactive analysis job=<inp file > user=<user-script> cpus=${SLURM_NPROCS} mp_mode=mpi double=both memory="3 gb" scratch=${SLURM_SUBMIT_DIR}
