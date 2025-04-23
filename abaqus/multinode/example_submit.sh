@@ -10,7 +10,7 @@
 module purge
 
 # load modules you need to use
-# can also be
+# MUST BE ABAQUS 2022 OR NEWER
 # module load abaqus/2025
 module load abaqus/2022
 
