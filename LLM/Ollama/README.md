@@ -24,7 +24,9 @@ Instead of in Scratch, you can also make this location point to a directory in y
 In order to run this workflow, you will need to create a virtual environment with Ollama and all other packages that your python script requires. Here are some instructions to create the virtual environment that works for this workflow specifically (you will need to change the paths for your work environment):
 
 `mamba create --prefix=/projects/p12345/envs/ollama-env python=3.12`
+
 `mamba activate --prefix=/projects/p12345/envs/ollama-env`
+
 `pip install ollama libpath toml pandas`
 
 
