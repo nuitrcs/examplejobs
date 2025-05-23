@@ -1,0 +1,5 @@
+Summarize the story below in two sentences. See if you can find the author, the genre, and the topic. If you cannot identify one of this elements, indicate it with "unidentified". Return as JSON.
+
+Story:
+
+{story}

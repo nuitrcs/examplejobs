@@ -1,0 +1,18 @@
+[literary-elements]
+authors = "sysm/authors.txt"
+genres = "sysm/genres.txt"
+topics = "sysm/topics.txt"
+
+[system]
+system_message = "sysm/sysm_create_stories.txt"
+
+[saving]
+save_yn = 1
+save_all_yn = 1
+
+[downsampling]
+downsample_yn = 1
+donsample_quantity = 2
+
+[model]
+llm_model = "llama3.2"
