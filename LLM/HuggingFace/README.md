@@ -20,9 +20,13 @@ Instead of in Scratch, you can also make this location point to a directory in y
 In order to run this workflow, you will need to create a virtual environment with transformers, unsloth, and all other packages that your python script requires. Here are some instructions to create the virtual environment that works for this workflow specifically (you will need to change the paths for your work environment):
 
 `module load mamba/24.3.0`
+
 `mamba create --prefix=/path/to/envs/huggingface-env python=3.11`
+
 `mamba activate /path/to/envs/huggingface-env`
+
 `mamba install pytorch-cuda=12.1 pytorch nvidia/label/cuda-12.1.0::cuda-toolkit xformers -c pytorch -c nvidia -c xformers`
+
 `pip install unsloth` 
 
 
