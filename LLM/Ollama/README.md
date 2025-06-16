@@ -27,7 +27,7 @@ In order to run this workflow, you will need to create a virtual environment wit
 
 `mamba activate --prefix=/projects/p12345/envs/ollama-env`
 
-`pip install ollama libpath toml pandas`
+`pip install ollama pandas`
 
 
 ## Running the Workflow on Quest
