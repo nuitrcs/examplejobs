@@ -6,8 +6,8 @@
 ## SOFTWARE SETUP 
 # Note: this will install julia packages in a default location 
 # ~/.julia/packages 
-# and default 'environment'
-# /gpfs/home/tdm5510/.julia/environments/v1.11/Project.toml
+# and default 'environment' (version number may vary)
+# ~/.julia/environments/v1.11/Project.toml
 # julia handles environments differently from utilities like 
 # conda/mamba. For more information or to customize your package 
 # environments, see:
