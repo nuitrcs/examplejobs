@@ -13,7 +13,7 @@ module purge all
 module load qchem/6.0.2
 
 ### Set a path to your scratch directory for this specific job. Make the directory if it doesn't already exist. 
-MYTMP=/scratch/<user_ID>/${SLURM_JOB_ID}
+MYTMP=/scratch/$USER/qchem_jobs/${SLURM_JOB_ID}
 mkdir -p $MYTMP
 
 ### Set the variables for the MPI processing and point qchem to the scratch directory for processing. 
