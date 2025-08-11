@@ -4,9 +4,9 @@ Whenever possible it’s recommended to split the CPU and GPU workloads for Alph
 
 The AlphaFold3 module provides 3 functions: af3_cpu, af3_gpu, and af3_full
 
-The examples below can also be found on the AlphaFold3 GitHub example  and show how to run an example workflow in the CPU and GPU steps.
+The examples below can also be found on the [AlphaFold3 GitHub example](https://github.com/nuitrcs/examplejobs/tree/master/alphafold/v3.0.0) and show how to run an example workflow in the CPU and GPU steps.
 
-The AlphaFold3 site  also provides a fold_input.json as an example of how to format the input for the application.
+The [AlphaFold3 site](https://github.com/google-deepmind/alphafold3/tree/main) also provides a fold_input.json as an example of how to format the input for the application.
 
 {
   "name": "2PV7",
