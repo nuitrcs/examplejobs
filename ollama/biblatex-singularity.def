@@ -1,0 +1,18 @@
+Bootstrap: docker   ### Where does the container live that you would like to build on top of.
+From: ubuntu:groovy    ### What is the name of the container that you would like to build on top of.
+
+###%post: Imagine you had sudo privileges and a terminal window open, what commands would you run to install your program. Remember that you have access to all the functions and applications that exist in the container that you are building on top of. In our case, we are running on an Ubuntu OS container so we have access/the ability to install programs via apt-get.
+
+%post
+  # we do not want any interactive prompts (we cannot relate to the building of the container interactively)
+  export DEBIAN_FRONTEND=noninteractive
+
+  # Upgrade system libraries for ubuntu 21.04 and install libraries we need for our program
+  apt-get -y update && apt-get -y install python3 python3-pandas
+
+  curl -fsSL https://ollama.com/install.sh | sh
+  ollama pull mistral
+#### %runscript Imagine you had just finished installing your program using the instructions in %post, what command(s) would you use to run it?
+
+%runscript 
+  python3 ./test-ollama.py
