@@ -46,7 +46,7 @@ for element, element_file in config_params["literary-elements"].items():
 # :: DOWNSAMPLE Y/N::
 # Only if specified
 if config_params["downsampling"]["downsample_yn"]:
-    final_elements = {k:v[0:config_params["downsampling"]["donsample_quantity"]] for k,v in elements_lists.items()}
+    final_elements = {k:v[0:config_params["downsampling"]["downsample_quantity"]] for k,v in elements_lists.items()}
 else:
     final_elements = elements_lists
 
