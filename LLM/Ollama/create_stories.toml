@@ -12,7 +12,7 @@ save_all_yn = 1
 
 [downsampling]
 downsample_yn = 1
-donsample_quantity = 2
+downsample_quantity = 2
 
 [model]
 llm_model = "llama3.2"
