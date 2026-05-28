@@ -33,7 +33,7 @@ In order to run this workflow, you will need to create a virtual environment wit
 ## Running the Workflow on Quest
 1. In the directory where you want the code to be, clone down the examplejobs repo from github using the command
 git clone git@github.com:nuitrcs/examplejobs.git
-2. To run the workflow, go into the examplejobs folder, and into the LLM > HuggingFace folder. Here you will find the submit-model.sh script. Make sure you make the appropriate changes in the resource request and the path to the virtual environment. You can run the workflow using the command
-`sbatch submit-model.sh` 
+2. To run the workflow, go into the examplejobs folder, and into the LLM > HuggingFace folder. Here you will find the submit-fine-tuning.sh script. Make sure you make the appropriate changes in the resource request and the path to the virtual environment. You can run the workflow using the command
+`sbatch submit-fine-tuning.sh` 
 
 created by efrén cruz cortés, Emilio Lehoucq, and Sophie van Genderen.
