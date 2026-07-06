@@ -1,0 +1,119 @@
+&GLOBAL
+  PROJECT L-alanine
+  RUN_TYPE ENERGY
+  PRINT_LEVEL MEDIUM
+&END GLOBAL
+
+&FORCE_EVAL
+  METHOD Quickstep
+  &SUBSYS
+    &CELL
+      ABC 5.94 12.274 5.806
+      ALPHA_BETA_GAMMA 90.0 90.0 90.0
+    &END CELL
+    &COORD
+      H       2.524500    3.041497    1.962428
+      H       4.629042    2.355381    1.214615
+      H       3.465990    1.827599    0.083606
+      O       2.618649    2.259152    4.418947
+      N       3.844606    1.688657    1.063195
+      C       2.771842    1.976482    2.056775
+      C       3.292304    1.727320    3.482207
+      H       1.144638    1.357504    0.761747
+      H       0.766260    1.280178    2.511095
+      C       1.545885    1.112884    1.760611
+      H       4.191264    0.706982    1.142621
+      O       4.315885    1.027088    3.627589
+      H       1.807542    0.047869    1.771411
+      H       5.494500    3.095503    3.843572
+      H       7.599042    3.781619    4.591385
+      H       6.435990    4.309401    5.722394
+      O       5.588649    3.877848    1.387053
+      N       6.814606    4.448343    4.742805
+      C       5.741842    4.160518    3.749225
+      C       6.262304    4.409680    2.323793
+      H       4.114638    4.779496    5.044253
+      H       3.736260    4.856822    3.294905
+      C       4.515885    5.024116    4.045389
+      H       7.161264    5.430018    4.663379
+      O       7.285885    5.109912    2.178411
+      H       4.777542    6.089131    4.034589
+      H       3.415500    9.178497    0.940572
+      H       1.310958    8.492381    1.688385
+      H       2.474010    7.964599    2.819394
+      O       3.321351    8.396152   -1.515947
+      N       2.095394    7.825657    1.839805
+      C       3.168158    8.113482    0.846225
+      C       2.647696    7.864320   -0.579207
+      H       4.795362    7.494504    2.141253
+      H       5.173740    7.417178    0.391905
+      C       4.394115    7.249884    1.142389
+      H       1.748736    6.843982    1.760379
+      O       1.624115    7.164088   -0.724589
+      H       4.132458    6.184869    1.131589
+      H       0.445500    9.232503    4.865428
+      H      -1.659042    9.918619    4.117615
+      H      -0.495990   10.446401    2.986606
+      O       0.351351   10.014848    7.321947
+      N      -0.874606   10.585343    3.966195
+      C       0.198158   10.297518    4.959776
+      C      -0.322304   10.546680    6.385207
+      H       1.825362   10.916496    3.664747
+      H       2.203740   10.993822    5.414095
+      C       1.424115   11.161116    4.663611
+      H      -1.221264   11.567018    4.045621
+      O      -1.345885   11.246912    6.530589
+      H       1.162458   12.226131    4.674411
+    &END COORD
+    &KIND H
+      ELEMENT   H
+      BASIS_SET DZVP-GTH-PBE
+      POTENTIAL GTH-PBE-q1
+    &END KIND
+    &KIND C
+      ELEMENT   C
+      BASIS_SET DZVP-GTH-PBE
+      POTENTIAL GTH-PBE-q4
+    &END KIND
+    &KIND N
+      ELEMENT   N
+      BASIS_SET DZVP-GTH-PBE
+      POTENTIAL GTH-PBE-q5
+    &END KIND
+    &KIND O
+      ELEMENT   O
+      BASIS_SET DZVP-GTH-PBE
+      POTENTIAL GTH-PBE-q6
+    &END KIND
+  &END SUBSYS
+  &DFT
+    BASIS_SET_FILE_NAME  BASIS_SET
+    POTENTIAL_FILE_NAME  GTH_POTENTIALS
+    &QS
+      EPS_DEFAULT 1.0E-10
+    &END QS
+    &MGRID
+      NGRIDS 4
+      CUTOFF 300
+      REL_CUTOFF 60
+    &END MGRID
+    &XC
+      &XC_FUNCTIONAL PBE
+      &END XC_FUNCTIONAL
+    &END XC
+    &SCF
+      SCF_GUESS ATOMIC
+      EPS_SCF 1.0E-7
+      MAX_SCF 300
+      &DIAGONALIZATION ON
+        ALGORITHM STANDARD
+      &END DIAGONALIZATION
+      &MIXING  T
+        METHOD BROYDEN_MIXING
+        ALPHA 0.4
+        NBROYDEN 8
+      &END MIXING
+    &END SCF
+  &END DFT
+&END FORCE_EVAL
+
