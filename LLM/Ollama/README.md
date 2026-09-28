@@ -1,39 +1,35 @@
-# Quest LLMs
+# Ollama on Quest
 
-Repo with sample templates for running LLMs on Quest.
+Example of running a large language model (LLM) on Quest with [Ollama](https://ollama.com).
 
-As of now, the only workable files are:
-* create_stories (.py)
+For the full walkthrough of these files, including virtual environment setup and where to store downloaded models, see [Using Ollama on Quest](https://rcdsdocs.it.northwestern.edu/tutorials/python/python-llm-ollama.html).
 
-More templates to come!
+## Files
 
-## `create_stories`
-This is a sample script which uses the ollama package to run a large language model and generate a series of stories
-based on an author's style, a genre, and a topic. This template will help you get started for your own projects. Edit `create_stories.toml` to change some configuration options (model, downsample, etc.).
+* `basic_usage.py`: Generates a response from a single prompt, loops over prompts built from a template, and requests structured JSON output validated with Pydantic.
+* `submit_ollama_job.sh`: Slurm submission script. Finds a free port, loads the Ollama module, starts the Ollama server, activates your virtual environment, and runs `basic_usage.py`.
 
-In order to change how many authors to select from the file, change the `downsample_yn` variable. If `downsample_yn=0`, it will loop through all authors. If `downsample_yn=1`, it will loop through the amount set by variable downsample_quantity.
+## Running the Example
 
-## Change the location where models are saved
-If you would like the models you pull to be saved in a different location than in your home directory (defualt), you can use the following command:
+1. Create a virtual environment with the Ollama Python library and Pydantic:
 
-`echo "export OLLAMA_MODELS=/scratch/<netID>/path/to/Ollama-Models" >> $HOME/.bashrc`
+```
+module load mamba/24.3.0
+mamba create --prefix=/projects/<account_id>/envs/ollama-env -c conda-forge python=3.12
+mamba activate /projects/<account_id>/envs/ollama-env
+mamba install -c conda-forge ollama-python pydantic
+```
 
-Instead of in Scratch, you can also make this location point to a directory in your `/projects/pXXXXX` folder.
+2. In `submit_ollama_job.sh`, set `--account` and `--mail-user`, and update the `mamba activate` path to your environment.
 
-## Virtual Environment
-In order to run this workflow, you will need to create a virtual environment with Ollama and all other packages that your python script requires. Here are some instructions to create the virtual environment that works for this workflow specifically (you will need to change the paths for your work environment):
+3. Submit the job:
 
-`mamba create --prefix=/projects/p12345/envs/ollama-env python=3.12`
+```
+sbatch submit_ollama_job.sh
+```
 
-`mamba activate --prefix=/projects/p12345/envs/ollama-env`
+Results are printed rather than saved, so generated text appears in `output-<jobid>.out`. Ollama server messages go to `serve_ollama_<jobid>.log`.
 
-`pip install ollama pandas`
+Models download to your home directory unless you set `OLLAMA_MODELS` to a location in `/scratch` or `/projects`. Home directories are limited to 80 GB and models can be several GB each.
 
-
-## Running the Workflow on Quest
-1. In the directory where you want the code to be, clone down the examplejobs repo from github using the command
-`git clone git@github.com:nuitrcs/examplejobs.git`
-2. To run the workflow, go into the examplejobs folder, and into the LLM > Ollama folder. Here you will find the `submit_create_stories.sh` script. Make sure you make the appropriate changes in the resource request and the path to the virtual environment. Make any changes you would like to the `create_stories.toml` file, and you can run the workflow using the command
-`sbatch submit_create_stories.sh` 
-
-created by efrén cruz cortés and Sophie van Genderen.
+created by efrén cruz cortés.

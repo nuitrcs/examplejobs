@@ -1,16 +1,16 @@
 #!/bin/bash
-#SBATCH --account=pXXXX  ## YOUR ACCOUNT pXXXX or bXXXX
+#SBATCH --account=<account_id>  ## pXXXX or bXXXX
 #SBATCH --partition=gengpu  ### PARTITION (buyin, short, normal, etc)
 #SBATCH --nodes=1 ## how many computers do you need - for AlphaFold this should always be one
 #SBATCH --ntasks-per-node=4 ## how many cpus or processors do you need on each computer
 #SBATCH --job-name=Ollama-batch-job ## When you run squeue -u <NETID> this is how you can identify the job
-#SBATCH --time=3:30:00 ## how long does this need to run 
+#SBATCH --time=00:30:00 ## how long does this need to run 
 #SBATCH --mem=40GB ## how much RAM do you need per node (this effects your FairShare score so be careful to not ask for more than you need))
 #SBATCH --gres=gpu:h100:1 ## type of GPU requested, and number of GPU cards to run on
 #SBATCH --output=output-%j.out ## standard out goes to this file
 #SBATCH --error=error-%j.err ## standard error goes to this file
 #SBATCH --mail-type=ALL ## you can receive e-mail alerts from SLURM when your job begins and when your job finishes (completed, failed, etc)
-#SBATCH --mail-user=email@northwestern.edu ## your email, non-Northwestern email addresses may not be supported
+#SBATCH --mail-user=<YOUR_EMAIL@northwestern.edu> ## your email, non-Northwestern email addresses may not be supported
 
 #########################################################################
 ### PLEASE NOTE:                                                      ###
@@ -23,6 +23,7 @@
 ### needed may have to be altered.                                    ###
 #########################################################################
 
+### AUXILIARY FUNCTIONS FOR SUBMISSION
 
 # Source in all the helper functions - No need to change any of this
 source_helpers () {
@@ -114,13 +115,15 @@ export -f source_helpers
 
 source_helpers
 
+### MAIN SUBMISSION SECTION
+
 # Find available port to run server on
 OLLAMA_PORT=$(find_port localhost 7000 11000)
 export OLLAMA_PORT
 echo $OLLAMA_PORT
 
-
-module load ollama/0.6.6
+module purge
+module load ollama/0.11.4
 module load gcc/12.3.0-gcc
 module load mamba/24.3.0
 
@@ -136,7 +139,7 @@ sleep 30
 # activate virtual environment
 eval "$('/hpc/software/mamba/24.3.0/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 source "/hpc/software/mamba/24.3.0/etc/profile.d/mamba.sh"
-mamba activate /projects/p12345/envs/ollama-env # Make sure to change the path of this environment
+mamba activate /projects/<account_id>/envs/ollama-env # Make sure to change the path of this environment
 
 #Run the python script
-python -u create_stories.py
+python -u basic_usage.py
